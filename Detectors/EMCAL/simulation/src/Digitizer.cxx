@@ -219,9 +219,10 @@ void Digitizer::setEventTime(o2::InteractionTimeRecord record)
   }
 }
 //______________________________________________________________________
-void Digitizer::finish() { 
-  mDigits.finish(); 
-  if ( isDebugMode() == true ){
+void Digitizer::finish()
+{
+  mDigits.finish();
+  if (isDebugMode() == true) {
     endDebugStream();
   }
 }

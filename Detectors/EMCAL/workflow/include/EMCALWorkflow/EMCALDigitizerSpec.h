@@ -74,8 +74,8 @@ class DigitizerSpec final : public o2::base::BaseDPLDigitizer, public o2::framew
   o2::emcal::SDigitizer mSumDigitizer;    ///< Summed digitizer
   o2::emcal::SDigitizer mSumDigitizerTRU; ///< Summed digitizer TRU
   std::vector<Hit> mHits;                 ///< Vector with input hits
-  bool mRunDigitizer = true; ///< Run Digitizer FEE?
-  bool mRunDigitizerTRU = true;  ///< Run Digitizer TRU?
+  bool mRunDigitizer = true;              ///< Run Digitizer FEE?
+  bool mRunDigitizerTRU = true;           ///< Run Digitizer TRU?
   std::vector<TChain*> mSimChains;
 };
 

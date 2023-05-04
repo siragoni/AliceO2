@@ -124,14 +124,14 @@ void Patches::assignModulesToAllPatches()
       // std::get<0>(mFiredFastOrIndexMapPatch[i]) = i;
       // std::get<0>(mADCvalues[i]) = i;
       // std::get<0>(mPreviousTimebinADCvalue[i]) = i;
-      auto& mIndexMapPatchID            = std::get<0>(mIndexMapPatch[i]);
+      auto& mIndexMapPatchID = std::get<0>(mIndexMapPatch[i]);
       auto& mFiredFastOrIndexMapPatchID = std::get<0>(mFiredFastOrIndexMapPatch[i]);
-      auto& mADCvaluesID                = std::get<0>(mADCvalues[i]);
-      auto& mPreviousTimebinADCvalueID  = std::get<0>(mPreviousTimebinADCvalue[i]);
-      mIndexMapPatchID            = i;
+      auto& mADCvaluesID = std::get<0>(mADCvalues[i]);
+      auto& mPreviousTimebinADCvalueID = std::get<0>(mPreviousTimebinADCvalue[i]);
+      mIndexMapPatchID = i;
       mFiredFastOrIndexMapPatchID = i;
-      mADCvaluesID                = i;
-      mPreviousTimebinADCvalueID  = i;
+      mADCvaluesID = i;
+      mPreviousTimebinADCvalueID = i;
       int SeedID = std::get<1>(mPatchIDSeedFastOrIDs[i]);
       // assigning a square
       if (mWhichSide == 0) {
@@ -161,14 +161,14 @@ void Patches::assignModulesToAllPatches()
       // std::get<0>(mFiredFastOrIndexMapPatch[i]) = i;
       // std::get<0>(mADCvalues[i]) = i;
       // std::get<0>(mPreviousTimebinADCvalue[i]) = i;
-      auto& mIndexMapPatchID            = std::get<0>(mIndexMapPatch[i]);
+      auto& mIndexMapPatchID = std::get<0>(mIndexMapPatch[i]);
       auto& mFiredFastOrIndexMapPatchID = std::get<0>(mFiredFastOrIndexMapPatch[i]);
-      auto& mADCvaluesID                = std::get<0>(mADCvalues[i]);
-      auto& mPreviousTimebinADCvalueID  = std::get<0>(mPreviousTimebinADCvalue[i]);
-      mIndexMapPatchID            = i;
+      auto& mADCvaluesID = std::get<0>(mADCvalues[i]);
+      auto& mPreviousTimebinADCvalueID = std::get<0>(mPreviousTimebinADCvalue[i]);
+      mIndexMapPatchID = i;
       mFiredFastOrIndexMapPatchID = i;
-      mADCvaluesID                = i;
-      mPreviousTimebinADCvalueID  = i;
+      mADCvaluesID = i;
+      mPreviousTimebinADCvalueID = i;
       int SeedID = std::get<1>(mPatchIDSeedFastOrIDs[i]);
       // assigning a square
       if (mWhichSide == 0) {
@@ -213,10 +213,10 @@ void Patches::updateADC()
 
     for (auto FastOrs : std::get<1>(mIndexMapPatch[PatchID])) {
       auto elem = mFastOrs[FastOrs].mADCvalues;
-      if (elem.size() == 0){
+      if (elem.size() == 0) {
         // LOG(info) << "DIG SIMONE updateADC in Patches: elem.size() == 0 ";
         continue;
-      }  
+      }
       auto it = elem.end() - 1;
       auto pointedvalue = *it;
       // LOG(info) << "DIG SIMONE updateADC in Patches: pointedvalue = " << pointedvalue;

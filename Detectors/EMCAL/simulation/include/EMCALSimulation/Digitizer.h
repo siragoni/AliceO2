@@ -92,7 +92,6 @@ class Digitizer : public TObject
   /// Getter for debug mode
   bool isDebugMode() { return mEnableDebugStreaming; }
 
-
   /// raw pointers used here to allow interface with TF1
   static double rawResponseFunction(double* x, double* par);
 

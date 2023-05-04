@@ -46,11 +46,10 @@ struct EMCALTriggerInputs {
 /// \param mInterRecord Last known interaction record
 /// \param mLastTimesumAllPatches Vector of tuples with TRU ID, PatchID, and their last Timesums
 struct EMCALTriggerInputsPatch {
-  o2::InteractionRecord mInterRecord;                               ///< Last known interaction record
+  o2::InteractionRecord mInterRecord;                                     ///< Last known interaction record
   std::vector<std::tuple<int, int, double, bool>> mLastTimesumAllPatches; ///< TRU ID, PatchID, and its last Timesum
   ClassDefNV(EMCALTriggerInputsPatch, 1);
 };
-
 
 /// \class LZEROElectronics
 /// \brief Container class for Digits, MC lebels, and trigger records

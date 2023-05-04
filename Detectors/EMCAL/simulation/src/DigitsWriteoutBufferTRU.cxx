@@ -30,7 +30,6 @@
 #include "Framework/DataRefUtils.h"
 #include "Framework/Lifetime.h"
 
-
 using namespace o2::emcal;
 
 //_____________________________________________________________________
@@ -62,9 +61,9 @@ void DigitsWriteoutBufferTRU::fillOutputContainer(bool isEndOfTimeFrame, Interac
     // mDigitStream.fill(mDequeTime, mCurrentInteractionRecord);
     // LOG(info) << "DIG SIMONE fillOutputContainer in DigitsWriteoutBufferTRU: before LZERO.fill";
     LZERO.fill(mDequeTime, mCurrentInteractionRecord, patchesFromAllTRUs);
-    auto TriggerInputs        = LZERO.getTriggerInputs();
+    auto TriggerInputs = LZERO.getTriggerInputs();
     auto TriggerInputsPatches = LZERO.getTriggerInputsPatches();
-    int nIter = TriggerInputs.size(); 
+    int nIter = TriggerInputs.size();
     LOG(info) << "DIG SIMONE fillOutputContainer in DigitsWriteoutBufferTRU: size of TriggerInputs = " << nIter;
     // for (auto& patches : patchesFromAllTRUs) {
     //   LZERO.updatePatchesADC(patches);
@@ -95,9 +94,9 @@ void DigitsWriteoutBufferTRU::fillOutputContainer(bool isEndOfTimeFrame, Interac
     // mDigitStream.fill(mDequeTime, mCurrentInteractionRecord);
     // LOG(info) << "DIG SIMONE fillOutputContainer in DigitsWriteoutBufferTRU: before LZERO.fill";
     LZERO.fill(mDequeTime, mCurrentInteractionRecord, patchesFromAllTRUs);
-    auto TriggerInputs        = LZERO.getTriggerInputs();
+    auto TriggerInputs = LZERO.getTriggerInputs();
     auto TriggerInputsPatches = LZERO.getTriggerInputsPatches();
-    int nIter = TriggerInputs.size(); 
+    int nIter = TriggerInputs.size();
     LOG(info) << "DIG SIMONE fillOutputContainer in DigitsWriteoutBufferTRU: size of TriggerInputs = " << nIter;
     // for (auto& patches : patchesFromAllTRUs) {
     //   LZERO.updatePatchesADC(patches);
@@ -113,7 +112,6 @@ void DigitsWriteoutBufferTRU::fillOutputContainer(bool isEndOfTimeFrame, Interac
     }
   }
   // LOG(info) << "DIG SIMONE fillOutputContainer in DigitsWriteoutBufferTRU: end";
-
 }
 //________________________________________________________
 // Constructor: reserves space to keep always a minimum buffer size
