@@ -81,7 +81,7 @@ std::vector<CTPDigit> Digitizer::process(const gsl::span<o2::ctp::CTPInputDigit>
             std::bitset<CTP_NINPUTS> emcMBaccept;
             emcMBaccept.set(CTP_NINPUTS - 1, 1);
             inpmaskcoll |= emcMBaccept;
-          } else {
+          } //else { // needs to be done always, remove else
             for (auto const& ctpinp : det2ctpinp[o2::detectors::DetID::EMC]) {
               uint64_t mask = inpmaskdebug & detInputName2Mask[ctpinp.name];
               // uint64_t mask = (inp->inputsMask).to_ullong() & detInputName2Mask[ctpinp.name];
@@ -89,7 +89,7 @@ std::vector<CTPDigit> Digitizer::process(const gsl::span<o2::ctp::CTPInputDigit>
                 inpmaskcoll |= std::bitset<CTP_NINPUTS>(ctpinp.inputMask);
               }
             }
-          }
+          // }
           LOG(info) << "EMC input mask:" << inpmaskcoll;
           break;
         }
@@ -151,7 +151,7 @@ void Digitizer::calculateClassMask(const std::bitset<CTP_NINPUTS> ctpinpmask, st
       if (clustername == "emc") {
         tvxMBemc |= tcl.name.find("minbias_TVX_L0") != std::string::npos; // 2022
       }
-      if (tcl.descriptor->getInputsMask() & ctpinpmask.to_ullong()) {
+      if ((tcl.descriptor->getInputsMask() & ctpinpmask.to_ullong()) == tcl.descriptor->getInputsMask()) {
         // require real physics input in any case
         if (tvxMBemc) {
           // if the class is a min. bias class accept it only if the MB-accept bit is set in addition
@@ -160,16 +160,15 @@ void Digitizer::calculateClassMask(const std::bitset<CTP_NINPUTS> ctpinpmask, st
             classmask |= tcl.classMask;
             LOG(info) << "adding MBA:" << tcl.name;
           }
-        } else {
+        } //else {
           // EMCAL rare triggers - physical trigger input
           // class identification can be handled like in the case of the other
           // classes as EMCAL trigger input is required
           classmask |= tcl.classMask;
-          LOG(info) << "SIMONE EMCAL WAS HERE IN CTPPPPPPPPPPPPPPPP, class mask = " << classmask;
-        }
+        // }
       }
     } else {
-      if (tcl.descriptor->getInputsMask() & ctpinpmask.to_ullong()) {
+      if ((tcl.descriptor->getInputsMask() & ctpinpmask.to_ullong()) == tcl.descriptor->getInputsMask()) {
         classmask |= tcl.classMask;
       }
     }
